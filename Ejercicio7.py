@@ -9,10 +9,10 @@ total = 0
 lista = []
 
 def Registrar_Productos():
-    nombre = str(input("Digita el nombre del producto"))
-    codigo = int(input("Digita el codigo del producto"))
-    precio = float(input("Digite el precio del producto"))
-    cantidad = int(input("Digite la cantidad del producto"))
+    nombre = str(input("Digita el nombre del producto: "))
+    codigo = int(input("Digita el codigo del producto: "))
+    precio = float(input("Digite el precio del producto: "))
+    cantidad = int(input("Digite la cantidad del producto: "))
     producto = (codigo, nombre, precio, cantidad)
     lista.append(producto)
     print ("Producto Registrado correctamente")
@@ -21,13 +21,13 @@ def Realizar_Ventas():
     global Total_Ventas
     global Cantidad_Ventas
 
-    print("\n--- REALIZAR VENTA ---")
+    print("REALIZAR VENTA")
 
-    codigo_buscar = input("Ingrese el codigo del producto: ")
+    codigo_buscar = int(input("Ingrese el codigo del producto: "))
 
     encontrado = False
 
-    # Recorrer productos
+    
     for i in range(len(lista)):
 
         producto = lista[i]
@@ -36,13 +36,13 @@ def Realizar_Ventas():
 
             encontrado = True
 
-            print("Producto encontrado:", producto[1])
+            print("Producto encontrado: ", producto[1])
 
             cantidad_compra = int(input("Cantidad a comprar: "))
 
             stock = producto[3]
 
-            # Validar stock
+            
             if cantidad_compra <= stock:
 
                 subtotal = producto[2] * cantidad_compra
@@ -51,7 +51,7 @@ def Realizar_Ventas():
 
                 nuevo_stock = stock - cantidad_compra
 
-                # Actualizar producto
+                
                 lista[i] = (
                     producto[0],
                     producto[1],
@@ -65,10 +65,10 @@ def Realizar_Ventas():
                 print("\n======= FACTURA =======")
                 print("Producto:", producto[1])
                 print("Cantidad:", cantidad_compra)
-                print("Subtotal: $", subtotal)
-                print("IVA: $", round(iva, 2))
-                print("TOTAL: $", round(total, 2))
-                print("=======================\n")
+                print("Subtotal: ", subtotal)
+                print("IVA: ", round(iva, 2))
+                print("TOTAL: ", round(total, 2))
+                
 
             else:
                 print("No hay suficiente stock.")
@@ -81,14 +81,14 @@ def Valores_Totales():
     print("El valor total es: ",valores_totales)
 
 def Resumen_Transacciones():
-    print("\n--- REPORTE DIARIO ---")
+    print("REPORTE DIARIO ")
 
-    print("Cantidad de ventas:", cantidad_ventas)
-    print("Total vendido: $", round(total_ventas, 2))
+    print("Cantidad de ventas:", Cantidad_Ventas)
+    print("Total vendido: ", round(Total_Ventas, 2))
 
-    if cantidad_ventas > 0:
+    if Cantidad_Ventas > 0:
 
-        promedio = total_ventas / cantidad_ventas
+        promedio = Total_Ventas / Cantidad_Ventas
 
         print("Promedio por venta: $", round(promedio, 2))
 
@@ -107,7 +107,7 @@ def Consultar_Inventario():
 
             print("Codigo:", producto[0])
             print("Nombre:", producto[1])
-            print("Catalago:", producto[2])
+            print("Precio:", producto[2])
 
 
 opcion = 0

@@ -37,9 +37,9 @@ def Consultar_Inventario():
 
         for producto in lista:
 
-            print("Codigo:", registro_libro[0])
-            print("Nombre:", registro_libro[1])
-            print("Catalago:", registro_libro[2])
+            print("Codigo:", producto[0])
+            print("Nombre:", producto[1])
+            print("Catalago:", producto[2])
         
 opcion = 0
 while opcion != 6:

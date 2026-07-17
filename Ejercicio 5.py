@@ -2,9 +2,9 @@
 lista = []
 def Registrar_Contacto():
     
-    nombre = str(input("Digite su nombre"))
-    edad = int(input("Digite su edad"))
-    contacto = int(input("Digite su contacto"))
+    nombre = str(input("Digite su nombre: "))
+    edad = int(input("Digite su edad: "))
+    contacto = int(input("Digite su contacto: "))
     informacion = (nombre, edad, contacto)
     lista.append (informacion)
     print("Registrado Correctamente")
@@ -14,9 +14,9 @@ def Mostrar_Informacion():
       print("Ningun Contacto Registrado")
     else:
         for informacion in lista:
-            print("El nombre de la persona es:", informacion[0])
-            print("Su edad es:", informacion[1])
-            print("Su contacto es:", informacion[2] )
+            print("El nombre de la persona es: ", informacion[0])
+            print("Su edad es: ", informacion[1])
+            print("Su contacto es: ", informacion[2] )
 
 def Mostrar_Contactos():
     if len(lista) == 0:
@@ -27,7 +27,7 @@ def Mostrar_Contactos():
 
 
 def Eliminar_Contactos():
-    eliminar = input("Digite el contacto que quieres eliminar:")
+    eliminar = int(input("Digite el contacto que quieres eliminar: "))
     encontrado = "no"
     for informacion in lista:
         if informacion[2] == eliminar:
@@ -35,6 +35,8 @@ def Eliminar_Contactos():
             encontrado = "si"
             print("Contacto eliminado correctamente:")
         break
+    if encontrado == "no":
+        print("Contacto no encontrado")
         
 
 opcion = 0
